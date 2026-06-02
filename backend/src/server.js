@@ -52,6 +52,17 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Backend is up and running',
+    mongodb: mongoose.connection.readyState === 1
+      ? 'MongoDB connected'
+      : 'MongoDB disconnected',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check (before other routes)
 app.get('/api/health', (req, res) => {
   res.json({ 
