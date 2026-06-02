@@ -10,25 +10,31 @@ const Snippet = require('./models/Snippet');
 
 const app = express();
 
+const normalizeOrigin = (origin) => origin.replace(/\/$/, '');
+
 // CORS configuration - read allowed origins from environment variable
-const allowedOrigins = process.env.CORS_ORIGIN 
-  ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
-  : ['http://localhost:5173', 'http://localhost:3000']; // Default dev origins
+const allowedOrigins = (process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',')
+  : ['http://localhost:5173', 'http://localhost:3000'])
+  .map((origin) => normalizeOrigin(origin.trim()))
+  .filter(Boolean);
 
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    // In development, allow all localhost origins
-    if (process.env.NODE_ENV === 'development' || process.env.VERCEL !== '1') {
-      if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+    const requestOrigin = normalizeOrigin(origin);
+
+    // In development/local runs, allow localhost origins.
+    if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
+      if (requestOrigin.includes('localhost') || requestOrigin.includes('127.0.0.1')) {
         return callback(null, true);
       }
     }
     
     // Check if origin is in allowed list
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (allowedOrigins.includes(requestOrigin)) {
       callback(null, true);
     } else {
       callback(new Error(`Not allowed by CORS. Origin: ${origin}`));
