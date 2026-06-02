@@ -164,16 +164,6 @@ if (process.env.VERCEL !== '1') {
     await mongoose.connection.close();
     process.exit(0);
   });
-} else {
-  // For Vercel serverless, connect to MongoDB and initialize indexes
-  mongoose.connect(MONGODB_URI)
-    .then(async () => {
-      console.log('Connected to MongoDB (Vercel)');
-      await initializeIndexes();
-    })
-    .catch((err) => {
-      console.error('MongoDB connection error:', err);
-    });
 }
 
 // Export app for Vercel serverless functions
