@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* ========================================
+   CSS Variables - Light Theme (Default)
+   ======================================== */
+:root {
+  /* Font */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Background Colors */
+  --color-bg-primary: #f9fafb;      /* gray-50 */
+  --color-bg-secondary: #ffffff;     /* white */
+  --color-bg-tertiary: #f3f4f6;      /* gray-100 */
+  --color-bg-hover: #e5e7eb;         /* gray-200 */
+  --color-bg-active: #dbeafe;        /* blue-100 */
+  
+  /* Text Colors */
+  --color-text-primary: #111827;     /* gray-900 */
+  --color-text-secondary: #374151;   /* gray-700 */
+  --color-text-tertiary: #6b7280;    /* gray-500 */
+  --color-text-muted: #9ca3af;       /* gray-400 */
+  --color-text-inverse: #ffffff;     /* white */
+  
+  /* Border Colors */
+  --color-border-primary: #e5e7eb;   /* gray-200 */
+  --color-border-secondary: #d1d5db; /* gray-300 */
+  --color-border-focus: #6366f1;     /* indigo-500 */
+  
+  /* Brand Colors */
+  --color-brand-primary: #4f46e5;    /* indigo-600 */
+  --color-brand-primary-hover: #4338ca; /* indigo-700 */
+  --color-brand-light: #eef2ff;      /* indigo-50 */
+  --color-brand-text: #4338ca;       /* indigo-700 */
+  
+  /* Accent Colors */
+  --color-success: #16a34a;          /* green-600 */
+  --color-success-light: #dcfce7;    /* green-100 */
+  --color-success-text: #15803d;     /* green-700 */
+  
+  --color-warning: #ca8a04;          /* yellow-600 */
+  --color-warning-light: #fef9c3;    /* yellow-100 */
+  --color-warning-text: #a16207;     /* yellow-700 */
+  
+  --color-error: #dc2626;            /* red-600 */
+  --color-error-light: #fee2e2;      /* red-100 */
+  --color-error-text: #b91c1c;       /* red-700 */
+  
+  --color-info: #2563eb;             /* blue-600 */
+  --color-info-light: #dbeafe;       /* blue-100 */
+  --color-info-text: #1d4ed8;        /* blue-700 */
+  
+  /* Component-specific colors */
+  --color-card-bg: #ffffff;
+  --color-card-border: #e5e7eb;
+  --color-card-shadow: rgba(0, 0, 0, 0.1);
+  
+  --color-input-bg: #ffffff;
+  --color-input-border: #d1d5db;
+  --color-input-focus: #6366f1;
+  
+  --color-modal-overlay: rgba(0, 0, 0, 0.5);
+  --color-modal-bg: #ffffff;
+  
+  --color-sidebar-bg: #ffffff;
+  --color-header-bg: #ffffff;
+  
+  /* Code/Snippet colors */
+  --color-snippet-bg: #1e1e1e;
+  --color-command-accent: #16a34a;   /* green-600 */
+  --color-command-light: #dcfce7;    /* green-100 */
+  
+  /* Tag colors */
+  --color-tag-bg: #f3f4f6;
+  --color-tag-text: #4b5563;
+  --color-tag-active-bg: #eef2ff;
+  --color-tag-active-text: #4338ca;
+  
+  /* Scrollbar */
+  --color-scrollbar-track: #f3f4f6;
+  --color-scrollbar-thumb: #d1d5db;
+  --color-scrollbar-thumb-hover: #9ca3af;
+}
+
+/* ========================================
+   CSS Variables - Dark Theme
+   ======================================== */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-bg-primary: #0f172a;       /* slate-900 */
+  --color-bg-secondary: #1e293b;     /* slate-800 */
+  --color-bg-tertiary: #334155;      /* slate-700 */
+  --color-bg-hover: #475569;         /* slate-600 */
+  --color-bg-active: #312e81;        /* indigo-900 */
+  
+  /* Text Colors */
+  --color-text-primary: #f8fafc;     /* slate-50 */
+  --color-text-secondary: #e2e8f0;   /* slate-200 */
+  --color-text-tertiary: #94a3b8;    /* slate-400 */
+  --color-text-muted: #64748b;       /* slate-500 */
+  --color-text-inverse: #0f172a;     /* slate-900 */
+  
+  /* Border Colors */
+  --color-border-primary: #334155;   /* slate-700 */
+  --color-border-secondary: #475569; /* slate-600 */
+  --color-border-focus: #818cf8;     /* indigo-400 */
+  
+  /* Brand Colors */
+  --color-brand-primary: #6366f1;    /* indigo-500 */
+  --color-brand-primary-hover: #818cf8; /* indigo-400 */
+  --color-brand-light: #312e81;      /* indigo-900 */
+  --color-brand-text: #a5b4fc;       /* indigo-300 */
+  
+  /* Accent Colors */
+  --color-success: #22c55e;          /* green-500 */
+  --color-success-light: #14532d;    /* green-900 */
+  --color-success-text: #86efac;     /* green-300 */
+  
+  --color-warning: #eab308;          /* yellow-500 */
+  --color-warning-light: #422006;    /* yellow-900 */
+  --color-warning-text: #fde047;     /* yellow-300 */
+  
+  --color-error: #ef4444;            /* red-500 */
+  --color-error-light: #450a0a;      /* red-950 */
+  --color-error-text: #fca5a5;       /* red-300 */
+  
+  --color-info: #3b82f6;             /* blue-500 */
+  --color-info-light: #1e3a5f;       /* blue-900 */
+  --color-info-text: #93c5fd;        /* blue-300 */
+  
+  /* Component-specific colors */
+  --color-card-bg: #1e293b;
+  --color-card-border: #334155;
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  
+  --color-input-bg: #1e293b;
+  --color-input-border: #475569;
+  --color-input-focus: #818cf8;
+  
+  --color-modal-overlay: rgba(0, 0, 0, 0.7);
+  --color-modal-bg: #1e293b;
+  
+  --color-sidebar-bg: #1e293b;
+  --color-header-bg: #1e293b;
+  
+  /* Code/Snippet colors */
+  --color-snippet-bg: #0d1117;
+  --color-command-accent: #22c55e;
+  --color-command-light: #14532d;
+  
+  /* Tag colors */
+  --color-tag-bg: #334155;
+  --color-tag-text: #cbd5e1;
+  --color-tag-active-bg: #312e81;
+  --color-tag-active-text: #a5b4fc;
+  
+  /* Scrollbar */
+  --color-scrollbar-track: #1e293b;
+  --color-scrollbar-thumb: #475569;
+  --color-scrollbar-thumb-hover: #64748b;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-thumb-hover);
+}
+
+/* ========================================
+   Monaco Editor Customizations
+   ======================================== */
+.monaco-editor-container {
+  min-height: 200px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* ========================================
+   Syntax Highlighter Customizations
+   ======================================== */
+pre {
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+}
+
+/* ========================================
+   Animation Classes
+   ======================================== */
+.fade-in {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Theme Transition
+   ======================================== */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Disable transition for elements that shouldn't animate */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+/* ========================================
+   Mobile Blocker
+   ======================================== */
+.mobile-blocker {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-bg-primary);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .mobile-blocker {
+    display: flex;
+  }
+  
+  .app-content {
+    display: none !important;
+  }
+}
